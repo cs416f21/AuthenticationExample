@@ -23,7 +23,6 @@ def register_view(request):
         form = UserCreationForm(request.POST)
         # check whether it's valid: for example it verifies that password1 and password2 match
         if form.is_valid():
-            form.save()
             # if you want to login the user directly after registration, use the following three lines,
             # which logins the user and redirect to index
             user = form.save()
