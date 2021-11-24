@@ -24,12 +24,13 @@ def register_view(request):
         # check whether it's valid: for example it verifies that password1 and password2 match
         if form.is_valid():
             # if you want to login the user directly after registration, use the following three lines,
-            # which logins the user and redirect to index
+            # which login the user and redirect to index
             user = form.save()
             login(request, user)
             return redirect('index')
             # if you do want to login the user directly after registration, comment out the three lines above,
-            # redirect the user to login page so that after registration the user can enter the credentials
+            # save the form data and then redirect the user to login page so that after registration the user can enter the credentials
+            # form.save()
             # return redirect('login')
     else:
         # Create an empty instance of Django's UserCreationForm to generate the necessary html on the template.
